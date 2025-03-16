@@ -1,18 +1,16 @@
 package io.github.generaloss;
 
-import android.app.Activity;
 import android.os.Bundle;
 
-import jpize.android.context.AndroidContextBuilder;
+import jpize.android.context.JpizeAndroidActivity;
+import jpize.context.Jpize;
 
-public class MainActivity extends Activity {
+public class MainActivity extends JpizeAndroidActivity {
 
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        AndroidContextBuilder.create(this)
-            .build()
-            .setApp(new App());
+        Jpize.context.setApp(new InputTest());
     }
 
 }

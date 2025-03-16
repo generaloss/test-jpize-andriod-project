@@ -37,6 +37,5 @@ dependencies {
     implementation(libs.jpize.utils)
     implementation(libs.jpize.core)
     implementation(libs.jpize.core.android)
-    androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 }
