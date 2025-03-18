@@ -30,7 +30,7 @@ public class App extends JpizeApplication {
     private static final float REST_DISTANCE = 30F;
     private static final float CLICK_TOLERANCE = 10F;
 
-    private OrthographicCamera camera;
+    private OrthographicCameraCentered camera;
     private float cinematic_scale;
     private Vec2f prev_grab;
 
@@ -41,7 +41,7 @@ public class App extends JpizeApplication {
     private List<Constraint> constraints;
 
     public void init() {
-        this.camera = new OrthographicCamera();
+        this.camera = new OrthographicCameraCentered();
         this.camera.position().set(Jpize.getWidth() / 2F, Jpize.getHeight() / 2F);
         this.cinematic_scale = 1F;
         this.prev_grab = new Vec2f();
@@ -88,22 +88,22 @@ public class App extends JpizeApplication {
 
     @Override
     public void update() {
-        // // Input camera scale
-        // cinematic_scale *= Mathc.pow(1.25, Jpize.getScroll());
-        // camera.setScale(camera.getScale() + (cinematic_scale - camera.getScale()) / 10);
-        // // Input camera position
-        // if(MouseBtn.MIDDLE.pressed()){
-        //     if(MouseBtn.MIDDLE.down())
-        //         Jpize.input.getCursorPos(prev_grab);
-        //     camera.position().add(prev_grab.sub(Jpize.input.getCursorPos(new Vec2f())).div(camera.getScale()));
-        //     Jpize.input.getCursorPos(prev_grab);
-        // }
-        // camera.update();
+        // Input camera scale
+        cinematic_scale *= Mathc.pow(1.25, Jpize.getScroll());
+        camera.setScale(camera.getScale() + (cinematic_scale - camera.getScale()) / 10);
+        // Input camera position
+        if(MouseBtn.MIDDLE.pressed()){
+            if(MouseBtn.MIDDLE.down())
+                Jpize.input.getCursorPos(prev_grab);
+            camera.position().add(prev_grab.sub(Jpize.input.getCursorPos(new Vec2f())).div(camera.getScale()));
+            Jpize.input.getCursorPos(prev_grab);
+        }
+        camera.update();
 
-        // // Tear
-        // if(MouseBtn.LEFT.pressed()){
-        //     this.tear_cloth();
-        // }
+        // Tear
+        if(MouseBtn.LEFT.pressed()){
+            this.tear_cloth();
+        }
 
         // Apply gravity and update particles
         for(Particle particle: particles){

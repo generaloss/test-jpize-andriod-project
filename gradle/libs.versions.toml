@@ -9,8 +9,8 @@ espresso-core = { group = "androidx.test.espresso", name = "espresso-core", vers
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 jpize-utils = { group = "io.github.generaloss", name = "jpize-utils", version = "25.3.2-SNAPSHOT-1" }
-jpize-core = { group = "io.github.generaloss", name = "jpize-core", version = "25.3.2-SNAPSHOT-1.12" }
-jpize-core-android = { group = "io.github.generaloss", name = "jpize-core-android", version = "25.3.2-SNAPSHOT-1.12.9" }
+jpize-core = { group = "io.github.generaloss", name = "jpize-core", version = "25.3.2-SNAPSHOT-2.1" }
+jpize-core-android = { group = "io.github.generaloss", name = "jpize-core-android", version = "25.3.2-SNAPSHOT-2.12" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
